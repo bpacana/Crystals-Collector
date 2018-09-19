@@ -8,6 +8,14 @@ $(document).ready(function() {
 	var crystal3Num;
 	var crystal4Num;
 
+	var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+      $('#iframeAudio').remove()
+    }
+  else{
+     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+  }
+
 	function newNumbers() {
 		magicNumber = Math.floor(Math.random() * 110) + 20;
 		crystal1Num = Math.ceil(Math.random() * 12);
@@ -29,7 +37,7 @@ $(document).ready(function() {
 		$("#losses").text(losses);
 		$("#winOrLose").text("");
 
-		//console.log(crystal1Num, crystal2Num, crystal3Num, crystal4Num);
+		// console.log(crystal1Num, crystal2Num, crystal3Num, crystal4Num);
 	}
 
 	function youWin() {
@@ -58,6 +66,10 @@ $(document).ready(function() {
 		if (totalScore >= magicNumber) {
 			return;
 		}
+		$('.crystalimg').click(function(e) { // Passes the event to the function to allow the prevent default function.
+			e.preventDefault();
+			$('#lastclicked').text(this.textContent);
+		});
 
 		var crystalValue = $(this).attr("data-crystalvalue");
 		crystalValue = parseInt(crystalValue);

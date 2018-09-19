@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'sf_comic_script';
+    src: url("C:/Users/BPaca/Crystals-Collector/assets/fonts/SF Comic Script Condensed.ttf");
+  }
+
 html {
 	box-sizing: border-box;
 }
 
 body { 
+	font-family: "sf_comic_script";
 	min-height: 100vh;
     background: url("../../../Crystals-Collector/assets/images/space.jpg");
     background-size: cover;
@@ -28,6 +34,10 @@ h1 {
 	color: rgb(255, 255, 255);
 	margin: 55px 0px 75px 0px;
 	letter-spacing: 12px;
+}
+
+div.a {
+    font-size: 150%;
 }
 
 .crystalimg {
